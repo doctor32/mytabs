@@ -29,6 +29,8 @@
         <div class="choose_answer">
         <p v-if="model.length === tabIndex">Выберите ответ!</p>
         </div>
+        {{model}}
+        {{finishText}}
         <button 
           @click="nextPage" 
           :disabled="model.length === tabIndex"
@@ -40,6 +42,7 @@
     <div v-else class="finish">
       <p>Результат: <span class="finish__text">{{finishText}}</span></p> 
       <button @click="restart">Пройти заново</button>
+            {{model}}
     </div>
 
 
@@ -120,6 +123,8 @@ import {ref} from 'vue'
         tabIndex.value = 0
         finished.value = false
         model.value = []
+        finishText.value = ''
+        rightOnes.value = 0
       }
 
       return { 
